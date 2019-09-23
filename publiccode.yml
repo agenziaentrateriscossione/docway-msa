@@ -47,12 +47,12 @@ description:
     documentation: 'https://github.com'
     shortDescription: Modulo di gestione scambio documenti per DocWay
     longDescription: >
-      **MSA (Mail Storage Agent) è il software che si occupa dell'archiviazione
+      MSA (Mail Storage Agent) è il software che si occupa dell'archiviazione
       di messaggi di posta elettronica sul sistema documentale e di protocollo
       informatico DocWay. Gestisce sia caselle di posta elettronica standard che
       caselle PEC. Gestisce inoltre l'archiviazione di documenti di protocollo
       pervenuti tramite interoperabilità tra pubbliche amministrazioni. I
-      protocolli supportati sono IMAP e POP.**
+      protocolli supportati sono IMAP e POP.
 
 
       La sua primaria funzione è quella di monitorare le caselle mail e PEC
