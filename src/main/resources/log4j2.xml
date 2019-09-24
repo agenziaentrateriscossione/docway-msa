@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" shutdownHook="disable">
+    
+    <Properties>
+    	<Property name="logpattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex</Property>
+    	<!--Property name="logpattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property-->
+    </Properties>
+    
+    <Appenders>
+    	<Console name="CONSOLE" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${logpattern}"/>
+        </Console>
+    </Appenders>
+    
+    <Loggers>
+		<Logger name="it.tredi.msa" level="debug" additivity="false"> <!-- MSA Logger -->
+			<AppenderRef ref="CONSOLE"/>
+		</Logger>
+		<Logger name="it.tredi.mail" level="debug" additivity="false"> <!-- MAIL API Logger -->
+			<AppenderRef ref="CONSOLE"/>
+		</Logger>
+		<Logger name="it.tredi.extraway" level="info" additivity="false"> <!-- EXTRAWAY API Logger -->
+			<AppenderRef ref="CONSOLE"/>
+		</Logger>
+        <Root level="warn" additivity="false"> <!-- In a eXtraWay scenario don't set to [info] level if you don't want broker excessive logging -->
+            <AppenderRef ref="CONSOLE"/>
+        </Root>
+    </Loggers>
+    
+</Configuration>

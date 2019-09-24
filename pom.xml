@@ -1,0 +1,163 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>it.tredi</groupId>
+	<artifactId>msa</artifactId>
+	<version>3.0.5</version>
+	<packaging>jar</packaging>
+	<name>msa</name>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+		<jdk.version>1.8</jdk.version>
+		<git.group>docway5</git.group>
+	</properties>
+
+	<dependencies>
+       <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>	            
+        </dependency>		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.tredi</groupId>
+			<artifactId>utils</artifactId>
+			<version>0.0.3</version>
+		</dependency>
+		<dependency>
+  			<groupId>it.tredi</groupId>
+  			<artifactId>mail</artifactId>
+  			<version>1.0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>it.tredi</groupId>
+			<artifactId>broker</artifactId>
+			<version>2.0.7</version>
+		</dependency>		
+		<dependency>
+    		<groupId>org.dom4j</groupId>
+    		<artifactId>dom4j</artifactId>
+    		<version>2.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcmail-jdk16</artifactId>
+		    <version>1.46</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>it.tredi</groupId>
+            <artifactId>msa-repository</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+    </dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/log4j2.properties</exclude>
+						<exclude>**/log4j2.xml</exclude>
+						<exclude>**/log4j2.yml</exclude>
+						<exclude>**/log4j2.yaml</exclude>
+						<exclude>**/log4j2.json</exclude>
+						<exclude>**/log4j2.jsn</exclude>
+						<exclude>**/*.xml_linux</exclude>
+						<exclude>**/*.xml_windows</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId> <!-- unpack jars with dependency resources -->
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<!--goals>
+							<goal>unpack-dependencies</goal>
+						</goals-->
+						<configuration>
+							<outputDirectory>${project.build.directory}/dependency-resources</outputDirectory>
+							<includeGroupIds>it.tredi</includeGroupIds>
+							<includeArtifacIds>msa</includeArtifacIds>
+							<includes>it.tredi.msa.properties</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly/linux.xml</descriptor>
+						<descriptor>assembly/windows.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>service-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>	
+	
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://ecatonchiro.bo.priv:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://ecatonchiro.bo.priv:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
+	<scm>
+		<url>http://gitlab.bo.priv/${git.group}/${project.groupId}.${project.artifactId}</url>
+		<developerConnection>scm:git:ssh://${git.username}@gitlab.bo.priv:${git.group}/${project.groupId}.${project.artifactId}</developerConnection>
+		<connection>scm:git:ssh://${git.username}@gitlab.bo.priv:${git.group}/${project.groupId}.${project.artifactId}</connection>
+	</scm>
+</project>
