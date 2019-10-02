@@ -40,7 +40,7 @@ Di seguito le funzionalità offerto dal presente modulo:
 - Console WEB di monitoraggio per individuare agevolmente le email che sono andate in errore e per effettuare nuovamente l'elaborazione.
 ___
 
-> #### Per una visione complessiva del modulo e delle sue dipendenze si rimanda alla pagina [riuso](https://github.com/3dinformatica/riuso/blob/master/README.md)
+> #### Per una visione complessiva del modulo e delle sue dipendenze si rimanda alla pagina [riuso](https://github.com/agenziaentrateriscossione/riuso)
 ___
 
 ### Prerequisiti:
