@@ -4,7 +4,7 @@
 
 publiccodeYmlVersion: '0.2'
 name: DocWay - MSA
-url: 'https://github.com'
+url: 'https://github.com/agenziaentrateriscossione/docway-msa'
 releaseDate: '2019-07-22'
 developmentStatus: stable
 softwareVersion: 1.0.3
@@ -24,7 +24,7 @@ maintenance:
   type: contract
   contractors:
     - name: 3D Informatica srl
-      website: 'https://www.3di.it'
+      website: 'http://www.3di.it'
       until: '2021-01-01'
 legal:
   license: AGPL-3.0-or-later
@@ -36,6 +36,9 @@ localisation:
   availableLanguages:
     - it
 it:
+  countryExtensionVersion: '0.2'
+  riuso:
+    codiceIPA: esrsris 
   conforme:
     misureMinimeSicurezza: true
     gdpr: true
@@ -61,9 +64,5 @@ description:
       documentale, secondo modelli definibili dall'utente.
     features:
       - Archiviazione delle email PEC e non
-      - >-
-        scambio di documenti tra sistemi DocWay XML differenti mediante la posta
-        elettronica certificata (interoperabilità)
-      - >-
-        Gestione del processo di interfacciamento con lo SdI per le fatture
-        elettroniche
+      - Scambio documenti tra sistemi DocWay XML differenti tramite PEC
+      - Gestione processo di interfacciamento con SdI per fatture elettroniche
