@@ -47,7 +47,7 @@ it:
 description:
   it:
     genericName: Modulo MSA
-    documentation: 'https://github.com/agenziaentrateriscossione/docway-msa'
+    documentation: 'https://github.com/agenziaentrateriscossione/riuso'
     shortDescription: Modulo di gestione scambio documenti per DocWay
     longDescription: >
       MSA (Mail Storage Agent) è il software che si occupa dell'archiviazione
