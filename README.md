@@ -1,4 +1,4 @@
-# MSA
+# Sistema di Gestione documentale DocWay comprensivo del modulo MSA
 
 ## Modulo di gestione scambio documenti
 
