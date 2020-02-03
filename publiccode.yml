@@ -5,6 +5,7 @@
 publiccodeYmlVersion: '0.2'
 name: Sistema di Gestione documentale DocWay comprensivo del modulo MSA
 url: 'https://github.com'
+logo: logo.png
 releaseDate: '2019-07-22'
 developmentStatus: stable
 softwareVersion: 1.0.3
