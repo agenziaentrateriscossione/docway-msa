@@ -1,5 +1,7 @@
 # Sistema di Gestione documentale DocWay comprensivo del modulo MSA
-
+___
+> #### Per l'installazione di DocWay ed eXtraWay si rimanda alla pagina [riuso](https://github.com/agenziaentrateriscossione/riuso)
+___
 ## Modulo di gestione scambio documenti
 
 #### MSA (Mail Storage Agent) è il software che si occupa dell'archiviazione di messaggi di posta elettronica sul sistema documentale e di protocollo informatico DocWay. Gestisce sia caselle di posta elettronica standard che caselle PEC. Gestisce inoltre l'archiviazione di documenti di protocollo pervenuti tramite interoperabilità tra pubbliche amministrazioni. I protocolli supportati sono IMAP e POP.
@@ -38,9 +40,6 @@ Di seguito le funzionalità offerto dal presente modulo:
 - Worker concorrenti in grado di effettuare l'archiviazione in parallelo di più caselle di posta abbattendo i tempi di archiviazione (in particolare nel caso di numerose caselle di posta elettronica da gestire).
 - Produzione su MongoDB di rapporti di Audit per ogni sessione di archiviazione di ogni singola casella di posta elettronica. In caso di errore verrà memorizzato l'intero EML per agevolare le operazioni di monitoraggio, controllo errori e eventuale risoluzione di problemi.
 - Console WEB di monitoraggio per individuare agevolmente le email che sono andate in errore e per effettuare nuovamente l'elaborazione.
-___
-
-> #### Per una visione complessiva del modulo e delle sue dipendenze si rimanda alla pagina [riuso](https://github.com/agenziaentrateriscossione/riuso)
 ___
 
 ### Prerequisiti:
